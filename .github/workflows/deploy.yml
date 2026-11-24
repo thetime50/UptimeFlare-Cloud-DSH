@@ -162,9 +162,15 @@ jobs:
             -target=cloudflare_workers_script.uptimeflare_worker \
             -target=cloudflare_workers_cron_trigger.uptimeflare_worker_cron
 
+          if [[ "$PAGES_CODE" == "403" || "$PAGES_CODE" == "401" ]]; then
+            echo "Worker/Cron apply finished, but Pages cannot be managed (API $PAGES_CODE)."
+            echo "Add Account permission Cloudflare Pages:Edit to CLOUDFLARE_API_TOKEN, then re-run."
+            exit 1
+          fi
+
           echo "Applying remaining resources (Pages)..."
           if ! terraform apply -auto-approve -input=false; then
-            echo "ERROR: Full apply failed (often Pages 403). Ensure CLOUDFLARE_API_TOKEN has Account Cloudflare Pages:Edit, then re-run."
+            echo "ERROR: Full apply failed. Check Cloudflare token permissions and re-run."
             exit 1
           fi
         env:
