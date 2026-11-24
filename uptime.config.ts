@@ -23,7 +23,7 @@ const workerConfig: WorkerConfig = {
       
     {
       id: 'cloud_dsh_manage_instances',
-      name: 'Cloud-DSH Manage API',
+      name: 'Cloud-DSH-tunnel',
       method: 'GET',
       target: 'https://collectables-templates-pmc-boom.trycloudflare.com/manage/api/instances',
       tooltip: 'gateway /manage/api/instances 应返回 JSON 数组',
