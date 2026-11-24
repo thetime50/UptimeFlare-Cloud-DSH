@@ -21,35 +21,37 @@ const workerConfig: WorkerConfig = {
   monitors: [
     // // Example HTTP Monitor
       
-    {
-      id: 'cloud_dsh_manage_instances',
-      name: 'Cloud-DSH-tunnel',
-      method: 'GET',
-      target: 'https://collectables-templates-pmc-boom.trycloudflare.com/manage/api/instances',
-      tooltip: 'gateway /manage/api/instances 应返回 JSON 数组',
-      statusPageLink: 'https://collectables-templates-pmc-boom.trycloudflare.com/manage/test',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: {
-        'User-Agent': 'Uptimeflare',
-      },
-      // 空数组 "[]" 也算通过；用来排除 HTML/502 页
-      responseKeyword: '[',
-    },
-    {
-      id: 'pst_nav_menu',
-      name: 'PST-nav-menu',
-      method: 'GET',
-      target: 'https://pst.thetime50.com/api/nav-menu',
-      tooltip: 'pst /api/nav-menu 应返回含 menus 的 JSON',
-      statusPageLink: 'https://pst.thetime50.com/',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: {
-        'User-Agent': 'Uptimeflare',
-      },
-      responseKeyword: 'menus',
-    },
+    // {
+    //   id: 'cloud_dsh_manage_instances',
+    //   name: 'Cloud-DSH-tunnel',
+    //   method: 'GET',
+    //   target: 'https://collectables-templates-pmc-boom.trycloudflare.com/manage/api/instances',
+    //   tooltip: 'gateway /manage/api/instances 应返回 JSON 数组',
+    //   statusPageLink: 'https://collectables-templates-pmc-boom.trycloudflare.com/manage/test',
+    //   expectedCodes: [200],
+    //   timeout: 10000,
+    //   headers: {
+    //     'User-Agent': 'Uptimeflare',
+    //   },
+    //   // 空数组 "[]" 也算通过；用来排除 HTML/502 页
+    //   responseKeyword: '[',
+    // },
+    // {
+    //   id: 'pst_nav_menu',
+    //   name: 'PST-nav-menu',
+    //   method: 'GET',
+    //   target: 'https://pst.thetime50.com/api/nav-menu',
+    //   tooltip: 'pst /api/nav-menu 应返回含 menus 的 JSON',
+    //   statusPageLink: 'https://pst.thetime50.com/',
+    //   expectedCodes: [200],
+    //   timeout: 10000,
+    //   headers: {
+    //     'User-Agent': 'Uptimeflare',
+    //   },
+    //   responseKeyword: 'menus',
+    // },
+
+    /////
     // {
     //   // `id` should be unique, history will be kept if the `id` remains constant
     //   id: 'foo_monitor',
